@@ -33,6 +33,8 @@ If you are reading this and taking the effort to understand these papers, we wou
 
 * [A Relational Model of Data for Large Shared Data Banks](papers/codd.pdf) (1970): Codd's argument for data independence (from 1970), a fundamental concept in relational databases. Despite the current NoSQL trend, I believe ideas from this paper are becoming increasingly important in massively parallel data systems.
 
+* [The Transaction Concept: Virtues and Limitations](http://research.microsoft.com/en-us/um/people/gray/papers/theTransactionConcept.pdf) (1981): Jim Gray's paper about what is a transaction and the properties of atomicity, durability and consistency (does not discuss isolation), along with implementation techniques.
+
 * [ARIES: A Transaction Recovery Method Supporting Fine-Granularity Locking and Partial Rollbacks Using Write-Ahead Logging](papers/aries.pdf) (1992): The first algorithm that actually works: it supports concurrent execution of transactions without losing data even in the presence of failures. This paper is very hard to read because it mixes a lot of low level details in the explanation of the high level algorithm. Perhaps try understand ARIES (log recovery) by reading a database textbook before attempting to read this paper.
 
 * [B-tree and UB-tree](http://www.scholarpedia.org/article/B-tree_and_UB-tree) (2008): A good explanation of B-Tree, B+-Tree and UB-Trees by the Inventor of the B-Tree, Dr Rudolf Bayer.
@@ -59,6 +61,7 @@ If you are reading this and taking the effort to understand these papers, we wou
 
 * [Eddies: Continuously Adaptive Query Processing](papers/eddies.pdf) (2000): Traditional query optimization (and the cost model used) is static. There are two problems with the traditional model. First, it is hard to build the cost model absent of data statistics. Second, query execution environment might change in long running queries and a static approach cannot capture the change. Analogous to fluid dynamics, this paper proposes a set of techniques that optimize query execution dynamically. I don't think ideas in Eddies have made their way into commercial systems yet, but the paper is very refreshing to read and might become more important now.
 
+* [How Good Are Query Optimizers, Really?](http://www.vldb.org/pvldb/vol9/p204-leis.pdf): It explores how cardinality estimation, cost model and enumeration space can influence query optimizers. And it introduces a real dataset with real queries which have many correlations, making it much more suitable for doing experiments for query optimizer than some existing datasets such as TPC-H whose data is independent and uniformly distributed.
 
 ## <a name='system-design'> Classic System Design
 
@@ -88,6 +91,8 @@ Columnar storage and column-oriented query engine are critical to analytical wor
 * [Resilient Distributed Datasets: A Fault-Tolerant Abstraction for In-Memory Cluster Computing](papers/spark.pdf) (2012): This is the research paper behind the Spark cluster computing project at Berkeley. Spark exposes a distributed memory abstraction called RDD, which is an immutable collection of records distributed across a cluster's memory. RDDs can be transformed using MapReduce style computations. The RDD abstraction can be orders of magnitude more efficient for workloads that exhibit strong temporal locality, e.g. query processing and iterative machine learning. Spark is an example of why it is important to separate the MapReduce programming model from its execution engine.
 
 * [Shark: SQL and Rich Analytics at Scale](papers/shark.pdf) (2013): Describes the Shark system, which is the SQL engine built on top of Spark. More importantly, the paper discusses why previous SQL on Hadoop/MapReduce query engines were slow.
+
+* [Readings in Database Systems(The Red Book)](http://www.redbook.io): A compact and informative book by Peter Bailis, Joseph Hellerstein and Michael Stonebraker about the history and state of the art researches and developments an the field of data management systems.
 
 
 ## <a name="cc"> Concurrency Control
