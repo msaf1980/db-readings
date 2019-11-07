@@ -53,6 +53,8 @@ If you are reading this and taking the effort to understand these papers, we wou
 
 * [A practical scalable distributed B-tree](http://www.hpl.hp.com/techreports/2007/HPL-2007-193.pdf) (2007): Combines optimistic concurrency control, lazy replication of inner nodes and eager replication of node versions, to achieve a performant distributed B-tree.
 
+* [The Bw-Tree: A B-tree for New Hardware Platforms](papers/bwtree.pdf) (2013) A lock-free version b-tree from Mircosoft, but optimized for modern hardware. It utilizes "delta" to store the modification instead of replacing the whole page/block. The "delta" can be the updating on the tuple or the changing of tree-structure (collapse or split). The "delta" is CPU cache friendly and can easily support the multi-version. 
+
 * [Improved Query Performance with Variant Indexes](papers/variant-index.pdf) (1997): Analytical databases and OLTP databases require different trade-offs. These are reflected in the choices of indexing data structures. This paper talks about a number of index data structures more suitable for analytical databases.
 
 * [On Optimistic Methods for Concurrency Control](papers/occ.pdf) (1981): There are two ways to support concurrency. The first is the pessimistic way, i.e. to lock shared data preemptively. This paper explains an alternatively to locking called Optimistic Concurrency Control. Optimistic approaches assume conflicts are rare and executes transactions without acquiring locks. Before committing the transactions, the database system checks for conflicts and aborts/restarts transactions if conflicts arise.
